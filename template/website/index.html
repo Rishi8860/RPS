@@ -1,0 +1,250 @@
+{% extends 'website/temp.html' %}
+{% load static%}
+{% block content%}
+
+    <!-- end header section -->
+    <!-- slider section -->
+    <section class="slider_section " >
+      <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-interval="3000">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-7">
+                  <div class="detail-box">
+                    <h1  style="text-shadow: 1px 2px 2px black;">
+                      RPS Global Hospital
+                    </h1>
+                    <p  style="text-shadow: 1px 2px 2px black;">
+                      "Bringing medical care of International guidelines inside the scope of each person."
+                    </p>
+                    <div class="btn-box">
+                      <a href="{% url 'about' %}" class="btn1">
+                        Read More
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% for i in slider %}
+          <div class="carousel-item" data-interval="3000" style="text-shadow: 1px 2px 2px black;">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-7">
+                  <div class="detail-box"  style="text-shadow: 1px 2px 2px black;">
+                    <h1>
+                      {{i.Header}}
+                    </h1>
+                    <p>
+                      {{i.Data}}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+          
+        </div>
+        <ol class="carousel-indicators">
+          <li data-target="#customCarousel1" data-slide-to="0" class="active"></li>
+          {% for i in slider %}
+          <li data-target="#customCarousel1" data-slide-to="{{ forloop.counter }}"></li>
+          {% endfor %}
+        </ol>
+      </div>
+
+    </section>
+    <!-- end slider section -->
+  </div>
+
+
+  <!-- department section -->
+
+  <section class="department_section layout_padding">
+    <div class="department_container">
+      <div class="container ">
+        <div class="heading_container heading_center">
+          <h2>
+            Our Departments
+          </h2>
+          <p>
+            Asperiores sunt consectetur impedit nulla molestiae delectus repellat laborum dolores doloremque accusantium
+          </p>
+        </div>
+        <div class="row">
+          {% for i in depart %}
+          <div class="col-md-3">
+            <div class="box ">
+              <div class="img-box">
+                <img src="{{i.Logo.url}}" alt="">
+              </div>
+              <div class="detail-box">
+                <h5>
+                  {{i.Department}}
+                </h5>
+                <p>
+                  {{i.About}}
+                </p>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        <div class="btn-box">
+          <a href="{% url 'department' %}">
+            View All
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end department section -->
+
+  <!-- about section -->
+
+  <section class="about_section layout_margin-bottom">
+    <div class="container  ">
+      <div class="row">
+        <div class="col-md-6 ">
+          <div class="img-box">
+            <img src="{% static 'website/images/about-img.jpg' %}" alt="">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="detail-box">
+            <div class="heading_container">
+              <h2>
+                About <span>Us</span>
+              </h2>
+            </div>
+            <p>
+              There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
+              in some form, by injected humour, or randomised words which don't look even slightly believable. If you
+              are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in
+              the middle of text. All
+            </p>
+            <a href="">
+              Read More
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end about section -->
+
+  <!-- doctor section -->
+
+  <section class="doctor_section layout_padding">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h2>
+          Our Doctors
+        </h2>
+        <p class="col-md-10 mx-auto px-0">
+          Incilint sapiente illo quo praesentium officiis laudantium nostrum, ad adipisci cupiditate sit, quisquam aliquid. Officiis laudantium fuga ad voluptas aspernatur error fugiat quos facilis saepe quas fugit, beatae id quisquam.
+        </p>
+      </div>
+      <div class="row">
+        {% for i in data %}
+        <div class="col-sm-6 col-lg-4 mx-auto">
+          <div class="box">
+            <div class="img-box">
+              <img src='{{i.Photo.url}}' alt="">
+            </div>
+            <div class="detail-box">
+              <div class="social_box">
+                {{i.About}}
+              </div>
+              <h5>
+                {{i.Name}}
+              </h5>
+              <h6 class="">
+                {{i.Field}}
+              </h6>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+        
+        
+      </div>
+      <div class="btn-box">
+        <a href="{% url 'doctor' %}">
+          View All
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- end doctor section -->
+
+  <!-- contact section -->
+  <section class="contact_section layout_padding layout_padding-bottom">
+    <div class="container">
+      <div class="heading_container">
+        <h2>
+          Get In Touch
+        </h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form_container contact-form">
+            <form action="{% url 'touch' %}" method="post">
+              {% csrf_token %}
+              <div class="form-row">
+                <div class="col-lg-6">
+                  <div>
+                    <input type="text" placeholder="Your Name" name="Name" required/>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div>
+                    <input type="text" placeholder="Subject" name="sub" required/>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <input type="email" placeholder="Email" name="email" required/>
+              </div>
+              <div>
+                <input type="text" name="contact" id="" placeholder="Please enter your phone number" required>
+              </div>
+              <div>
+                <input type="text" class="message-box" placeholder="Message" name="message" required/>
+              </div>
+              <div class="btn_box">
+                <button type="submit">
+                  SEND
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="map_container">
+            <div class="map">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28625.283094901264!2d86.06018338022496!3d26.25645753851815!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39edce6ac2956023%3A0x4824650ad243727f!2sPandaul%2C%20Bihar!5e0!3m2!1sen!2sin!4v1644602884739!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end contact section -->
+
+  <!-- client section -->
+
+  
+  <!-- end client section -->
+
+
+
+ 
+
+{% endblock content%}

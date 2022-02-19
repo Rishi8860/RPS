@@ -1,0 +1,30 @@
+{%extends 'website/temp.html' %}
+{%load static%}
+{% block content%}
+<section class="about_section layout_padding">
+    <div class="container  ">
+      <div class="row">
+        <div class="col-md-6 ">
+          <div class="img-box">
+            <img src="images/about-img.jpg" alt="">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="detail-box">
+            <div class="heading_container">
+              <h2 style="color: white;text-shadow: 1px 1px 1px black;">
+                {{h}}
+              </h2>
+            </div>
+            <p style="color: white; text-shadow: 1px 1px 1px black;">
+              {{p}}
+            </p>
+            <a href="{% url 'home' %}">
+              Home
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock content%}
