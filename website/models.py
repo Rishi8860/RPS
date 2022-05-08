@@ -1,19 +1,22 @@
 from distutils.command.upload import upload
 from email.message import Message
+from msilib.schema import Class
 from operator import mod
 from pyexpat import model
+from typing_extensions import Required
 from django.db import models
 
 # Create your models here.
 class field(models.Model):
     Field=models.CharField(max_length=256,unique=True)
+    Field_Hindi=models.CharField(max_length=256,blank=True)
     About=models.CharField(max_length=256)
     def __str__(self):
         return self.Field
 class Doctor(models.Model):
-    CHOICE=(('Allergists/Immunologists','Allergists/Immunologists'),('Anesthesiologists','Anesthesiologists'),('Cardiologists','Cardiologists'),('Colon and Rectal Surgeons','Colon and Rectal Surgeons'),('Critical Care Medicine Specialists','Critical Care Medicine Specialists'),('Dermatologists','Dermatologists'),('Endocrinologists','Endocrinologists'),('Emergency Medicine Specialists','Emergency Medicine Specialists'),('Family Physicians','Family Physicians'),('Gastroenterologists','Gastroenterologists'),('Geriatric Medicine Specialists','Geriatric Medicine Specialists'),('Hematologists','Hematologists'),('Hospice and Palliative Medicine Specialists','Hospice and Palliative Medicine Specialists'),('Infectious Disease Specialists','Infectious Disease Specialists'),('Internists','Internists'),('Medical Geneticists','Medical Geneticists'),('Nephrologists','Nephrologists'),('Obstetricians and Gynecologists','Obstetricians and Gynecologists'),('Oncologists','Oncologists'),('Ophthalmologists','Ophthalmologists'))
     ID=models.AutoField(primary_key=True,)
     Name=models.CharField(max_length=256)
+    Name_Hindi=models.CharField(max_length=256,blank=True)
     Field=models.ForeignKey('field',on_delete=models.CASCADE)
     Photo=models.ImageField(upload_to='Doctors/')
     About=models.TextField()
@@ -41,13 +44,17 @@ class department(models.Model):
     About=models.CharField(max_length=256)
     def __str__(self):
         return self.Department
-class Facilities_no(models.Model):
-    Beds=models.IntegerField()
-    ICU_Beds=models.IntegerField()
-    Ventilator=models.IntegerField()
-    Equipments=models.IntegerField()
-    Nurses=models.IntegerField()
-    Staff=models.IntegerField()
+
+# About
+class about_u(models.Model):
+    About_us=models.TextField()
+    Front_page_photo=models.ImageField(upload_to='Front_page_photo/')
+    def __str__(self) -> str:
+        return self.About_us
+class Know_Your_Founder(models.Model):
+    Name=models.CharField(max_length=256,unique=True)
+    Photo=models.ImageField(upload_to='Founder_photo/')
+    About=models.TextField()
 
 
 

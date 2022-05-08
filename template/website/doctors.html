@@ -1,49 +1,54 @@
 {%extends 'website/temp.html' %}
 {%load static%}
 {% block content%}
-  <!-- doctor section -->
+<!-- doctor section -->
 
-  <section class="doctor_section layout_padding">
-    <div class="container">
-      <div class="heading_container heading_center">
-        <h2>
-          Our Doctors
-        </h2>
-        <p class="col-md-10 mx-auto px-0">
-          Incilint sapiente illo quo praesentium officiis laudantium nostrum, ad adipisci cupiditate sit, quisquam aliquid. Officiis laudantium fuga ad voluptas aspernatur error fugiat quos facilis saepe quas fugit, beatae id quisquam.
-        </p>
-      </div>
-      <div class="row">
-        {% for i in data %}
-        <div class="col-sm-6 col-lg-4 mx-auto">
-          <div class="box">
-            <div class="img-box">
-              <img src='{{i.Photo.url}}' alt="">
+<section class="doctor_section layout_padding">
+  <div class="container">
+    <div class="heading_container heading_center">
+      <h2>
+        Our Doctors / हमारे डॉक्टर
+      </h2>
+      <p class="col-md-10 mx-auto px-0">
+        We have dedicated the best team of doctors to help you 24 * 7 . Here, you will see all of our services, such as:
+        -Treatment for your illness and health problems. -Support for you and your family. And-Support to you in your
+        time of need.
+        <hr>
+        हमने 24*7 आपकी मदद करने के लिए डॉक्टरों की सर्वश्रेष्ठ टीम को समर्पित किया है। यहां, आप हमारी सभी सेवाओं को देखेंगे, जैसे: -आपकी बीमारी और स्वास्थ्य समस्याओं के लिए उपचार। - आपके और आपके परिवार के लिए समर्थन। 
+        और जरूरत के समय में आपका साथ दें।
+      </p>
+    </div>
+    <div class="row">
+      {% for i in data %}
+      <div class="col-sm-6 col-lg-4 mx-auto">
+        <div class="box">
+          <div class="img-box">
+            <img src='{{i.Photo.url}}' alt="">
+          </div>
+          <div class="detail-box">
+            <div class="social_box">
+              {{i.About}}
             </div>
-            <div class="detail-box">
-              <div class="social_box">
-                {{i.About}}
-              </div>
-              <h5>
-                {{i.Name}}
-              </h5>
-              <h6 class="">
-                {{i.Field}}
-              </h6>
-            </div>
+            <h5>
+              {{i.Name}} / {{i.Name_Hindi}}
+            </h5>
+            <h6 class="">
+              {{i.Field}}/{{i.Field_Hindi}}
+            </h6>
           </div>
         </div>
-        {% endfor %}  
       </div>
-
+      {% endfor %}
     </div>
-  </section>
 
-  <!-- end doctor section -->
+  </div>
+</section>
+
+<!-- end doctor section -->
 
 
 
- 
+
 {% endblock content%}
 {% block search%}
 

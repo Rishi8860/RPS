@@ -68,10 +68,13 @@
       <div class="container ">
         <div class="heading_container heading_center">
           <h2>
-            Our Departments
+            Our Departments / 
+            हमारे विभाग
           </h2>
           <p>
-            Asperiores sunt consectetur impedit nulla molestiae delectus repellat laborum dolores doloremque accusantium
+            We have different departments for your every situation
+            <hr>
+            आपकी हर स्थिति के लिए हमारे पास अलग-अलग विभाग हैं
           </p>
         </div>
         <div class="row">
@@ -108,24 +111,23 @@
 
   <section class="about_section layout_margin-bottom">
     <div class="container  ">
+      {% for i in About_us%}
       <div class="row">
         <div class="col-md-6 ">
           <div class="img-box">
-            <img src="{% static 'website/images/about-img.jpg' %}" alt="">
+            <img src="{{i.Front_page_photo.url}}" alt="">
           </div>
         </div>
         <div class="col-md-6">
           <div class="detail-box">
             <div class="heading_container">
               <h2>
-                About <span>Us</span>
+                About <span>Us</span> / हमारे बारे में
               </h2>
             </div>
             <p>
-              There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
-              in some form, by injected humour, or randomised words which don't look even slightly believable. If you
-              are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in
-              the middle of text. All
+              
+              {{i.About_us}}
             </p>
             <a href="">
               Read More
@@ -133,6 +135,7 @@
           </div>
         </div>
       </div>
+      {% endfor %}
     </div>
   </section>
 
@@ -144,11 +147,14 @@
     <div class="container">
       <div class="heading_container heading_center">
         <h2>
-          Our Doctors
+          Our Doctors / हमारे डॉक्टर
         </h2>
         <p class="col-md-10 mx-auto px-0">
-          Incilint sapiente illo quo praesentium officiis laudantium nostrum, ad adipisci cupiditate sit, quisquam aliquid. Officiis laudantium fuga ad voluptas aspernatur error fugiat quos facilis saepe quas fugit, beatae id quisquam.
-        </p>
+          We have dedicated the best team of doctors to help you 24 * 7 . Here, you will see all of our services, such as:
+          -Treatment for your illness and health problems, Support for you and your family and support to you in your time of need.
+        <hr>
+        हमने 24*7 आपकी मदद करने के लिए डॉक्टरों की सर्वश्रेष्ठ टीम को समर्पित किया है। यहां, आप हमारी सभी सेवाओं को देखेंगे, जैसे: -आपकी बीमारी और स्वास्थ्य समस्याओं के लिए उपचार। - आपके और आपके परिवार के लिए समर्थन। 
+        और जरूरत के समय में आपका साथ दें।</p>
       </div>
       <div class="row">
         {% for i in data %}
@@ -162,7 +168,7 @@
                 {{i.About}}
               </div>
               <h5>
-                {{i.Name}}
+                {{i.Name}}/{{i.Name_Hindi}}
               </h5>
               <h6 class="">
                 {{i.Field}}
@@ -189,7 +195,7 @@
     <div class="container">
       <div class="heading_container">
         <h2>
-          Get In Touch
+          Get In Touch / संपर्क करें
         </h2>
       </div>
       <div class="row">
@@ -200,12 +206,12 @@
               <div class="form-row">
                 <div class="col-lg-6">
                   <div>
-                    <input type="text" placeholder="Your Name" name="Name" required/>
+                    <input type="text" placeholder="Your Name / आपका नाम" name="Name" required/>
                   </div>
                 </div>
                 <div class="col-lg-6">
                   <div>
-                    <input type="text" placeholder="Subject" name="sub" required/>
+                    <input type="text" placeholder="Subject / विषय" name="sub" required/>
                   </div>
                 </div>
               </div>
@@ -213,10 +219,10 @@
                 <input type="email" placeholder="Email" name="email" required/>
               </div>
               <div>
-                <input type="text" name="contact" id="" placeholder="Please enter your phone number" required>
+                <input type="text" name="contact" id="" placeholder="Please enter your phone number / कृपया अपना फोन नंबर दर्ज करें " required>
               </div>
               <div>
-                <input type="text" class="message-box" placeholder="Message" name="message" required/>
+                <input type="text" class="message-box" placeholder="Message / संदेश" name="message" required/>
               </div>
               <div class="btn_box">
                 <button type="submit">
@@ -229,7 +235,7 @@
         <div class="col-md-6">
           <div class="map_container">
             <div class="map">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28625.283094901264!2d86.06018338022496!3d26.25645753851815!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39edce6ac2956023%3A0x4824650ad243727f!2sPandaul%2C%20Bihar!5e0!3m2!1sen!2sin!4v1644602884739!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3575.54376435052!2d86.07092531744384!3d26.341268999999993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39edcd154db54d03%3A0x4b6feef062513e96!2sMadhuri%20Health%20Care%20Hospital%20Private!5e0!3m2!1sen!2sin!4v1649526852985!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
           </div>
         </div>

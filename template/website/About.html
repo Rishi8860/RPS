@@ -5,33 +5,33 @@
 
   <section class="about_section layout_padding">
     <div class="container  ">
+      {% for i in About_us%}
       <div class="row">
         <div class="col-md-6 ">
           <div class="img-box">
-            <img src="images/about-img.jpg" alt="">
+            <img src="{{i.Front_page_photo.url}}" alt="">
           </div>
         </div>
         <div class="col-md-6">
           <div class="detail-box">
             <div class="heading_container">
               <h2 style="color: white;  text-shadow: 1px 1px 1px black;">
-                About <span>Us</span>
+                About <span>Us</span> /  हमारे बारे में
               </h2>
             </div>
             <p style="color: white;text-shadow: 1px 1px 1px black;" >
-              There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
-              in some form, by injected humour, or randomised words which don't look even slightly believable. If you
-              are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in
-              the middle of text. All
+              {{i.About_us}}
             </p>
             <a href="{% url 'founders' %}">
-              Know Our Founders
+              Know Our Founders / हमारे संस्थापकों को जानें
             </a>
           </div>
         </div>
       </div>
+      {% endfor %}
     </div>
   </section>
+  
 
   <!-- end about section -->
 

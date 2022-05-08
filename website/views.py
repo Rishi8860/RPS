@@ -11,7 +11,8 @@ def index(request):
     var=models.Doctor.objects.all()
     fields=models.field.objects.all()
     slider=models.Slider.objects.all()
-    return render(request,'website\index.html',{'data':var,'doct':fields,'slider':slider,'depart':depart})
+    About_us=models.about_u.objects.all()
+    return render(request,'website\index.html',{'data':var,'doct':fields,'slider':slider,'depart':depart,'About_us':About_us})
 def contact(request):
     fields=models.field.objects.all()
     return render(request,'website\contact.html',{'doct':fields})
@@ -30,7 +31,8 @@ def doctor(request):
         return render(request,'website\doctors.html',{'data':var,'doct':fields})
 def about(request):
     fields=models.field.objects.all()
-    return render(request,'website\About.html',{'doct':fields})
+    About_us=models.about_u.objects.all()
+    return render(request,'website\About.html',{'doct':fields,'About_us':About_us})
 def get_in_touch(request):
     if request.method=="POST":
         name=request.POST["Name"]
@@ -55,5 +57,7 @@ def get_in_touch(request):
         p="Due to some reasons your query is not registered with us, Please Try again or mail us as 'xyz@gmail.com' "
         return render(request,'website/touch.html',{'doct':fields,'h':h,'p':p})
 def founders(request):
-    return render(request,'website/Founders.html')   
+    fields=models.field.objects.all()
+    founder=models.Know_Your_Founder.objects.all()
+    return render(request,'website/Founders.html',{'doct':fields,'founder':founder})   
     
