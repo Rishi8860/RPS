@@ -44,31 +44,34 @@
           <div class="container">
             <nav class="navbar navbar-expand-lg custom_nav-container ">
               <a class="navbar-brand" href="{% url 'home' %}">
-              <img src="{% static 'website\images\navbar logo.png' %}" alt="" srcset="" height="30px">
-              <span >RPS GLOBAL HOSPITAL</span>
+              <img src="{% static 'website\images\RPS LOGO-05.png' %}" alt="" srcset="" height="100px">
+              <span ><span style="color: #34B3F1;">R</span><span style="color: red;">P</span><Span style="color: #34B3F1;">S</Span> GLOBAL HOSPITAL</span>
               </a>
-    
+              <!-- #112B3C -->
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class=""> </span>
               </button>
-    
+    <!-- <br> <span style="font-size: 15px;">( Unit of Madhuri Health Care Hospital Madhubani )</span> -->
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav">
                   <li class="nav-item active">
-                    <a class="nav-link" href="{% url 'home' %}">Home /  घर<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{% url 'home' %}" style="color: #83BD75;"  >Home /  घर<span class="sr-only">(current)</span></a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="{% url 'about' %}"> About Us / 
+                    <a class="nav-link" href="{% url 'about' %}"  style="color: #83BD75;" > About Us / 
                       हमारे बारे में</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="{% url 'department' %}">Departments / विभाग</a>
+                    <a class="nav-link" href="{% url 'department' %}"  style="color: #83BD75;" >Departments / विभाग</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="{% url 'doctor' %}">Doctors / चिकित्सक</a>
+                    <a class="nav-link" href="{% url 'doctor' %}"  style="color: #83BD75;" >Doctors / चिकित्सक</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="{% url 'contact' %}">Contact Us / संपर्क करें</a>
+                    <a class="nav-link" href="{% url 'contact' %}"  style="color: #83BD75;" >Contact Us / संपर्क करें</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'carriers' %}"  style="color: #83BD75;" >Carriers</a>
                   </li>
                   
                 </ul>
@@ -102,7 +105,7 @@
               <a href="">
                 <i class="fa fa-envelope" aria-hidden="true"></i>
                 <span>
-                  demo@gmail.com
+                  helpdesk@rpsglobalhospital.com
                 </span>
               </a>
             </div>
@@ -143,6 +146,9 @@
               </a>
               <a class="" href="{% url 'founders' %}">
                 Know Our Founders / हमारे संस्थापकों को जानें
+              </a>
+              <a class="" href="{% url 'carriers' %}">
+                Carriers
               </a>
             </div>
           </div>

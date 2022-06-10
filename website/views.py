@@ -33,21 +33,41 @@ def about(request):
     fields=models.field.objects.all()
     About_us=models.about_u.objects.all()
     return render(request,'website\About.html',{'doct':fields,'About_us':About_us})
+def carriers(request):
+    var=models.Doctor.objects.all()
+    fields=models.field.objects.all()
+    return render(request,'website\carriers.html',{'data':var,'doct':fields})
+def Resume(request):
+    if request.method=="POST":
+        name=request.POST["Name"]
+        Department=request.POST['Department']
+        contact=request.POST["contact"]
+        email=request.POST["email"]
+        About_You=request.POST["About_You"]
+        # Resume=request.FILES.get("Resume")
+        # print(Resume)
+        var=models.resume(Name=name,Contact=contact,Department=Department,Email=email,About_You=About_You,Resume=request.FILES.get('Resume'))
+        var.save()
+        h=f"Thank You {name}"
+        p="For reaching out to us we will get to you shortly"
+        fields=models.field.objects.all()
+        return render(request,'website/Resume.html',{'doct':fields,'h':h,'p':p})
+    else:
+        fields=models.field.objects.all()
+        h="Error"
+        p="Due to some reasons your Resume is not registered with us, Please Try again or mail us as 'xyz@gmail.com' "
+        return render(request,'website/touch.html',{'doct':fields,'h':h,'p':p})
 def get_in_touch(request):
     if request.method=="POST":
         name=request.POST["Name"]
         Subject='RPL Global'
-        Message=f"Dear {name},\nWe received your query we will get back to your shortly\nRegards\nRPS Global "
-        From='#############'
-        To=request.POST["email"]
-        send_mail(Subject,Message,From,[To])
         Subject=request.POST['sub']
         contact=request.POST["contact"]
         email=request.POST["email"]
         message=request.POST["message"]
         var=models.Query(Name=name,Contact=contact,Sub=Subject,Email=email,Message=message)
         var.save()
-        h="Thank You"
+        h=f"Thank You {name}"
         p="For reaching out to us we will get to you shortly"
         fields=models.field.objects.all()
         return render(request,'website/touch.html',{'doct':fields,'h':h,'p':p})

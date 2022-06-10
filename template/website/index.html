@@ -7,15 +7,15 @@
     <section class="slider_section " >
       <div id="customCarousel1" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
-          <div class="carousel-item active" data-interval="3000">
+          <div class="carousel-item active" data-interval="3500">
             <div class="container ">
               <div class="row">
                 <div class="col-md-7">
                   <div class="detail-box">
-                    <h1  style="text-shadow: 1px 2px 2px black;">
-                      RPS Global Hospital
+                    <h1  style="text-shadow: 1px 2px 2px black; ">
+                     <span style="color: #34B3F1;">R</span><span style="color: red;">P</span><Span style="color: #34B3F1;">S</Span> Global Hospital 
                     </h1>
-                    <p  style="text-shadow: 1px 2px 2px black;">
+                    <p  style="text-shadow: 1px 2px 2px black; font-size: 25px;">
                       "Bringing medical care of International guidelines inside the scope of each person."
                     </p>
                     <div class="btn-box">
@@ -29,15 +29,15 @@
             </div>
           </div>
           {% for i in slider %}
-          <div class="carousel-item" data-interval="3000" style="text-shadow: 1px 2px 2px black;">
+          <div class="carousel-item" data-interval="3500" style="text-shadow: 1px 2px 2px black;">
             <div class="container ">
               <div class="row">
                 <div class="col-md-7">
                   <div class="detail-box"  style="text-shadow: 1px 2px 2px black;">
-                    <h1>
+                    <h1  style="color: #83BD75;">
                       {{i.Header}}
                     </h1>
-                    <p>
+                    <p style="font-size: 25px;">
                       {{i.Data}}
                     </p>
                   </div>
@@ -180,6 +180,22 @@
         
         
       </div>
+      <div class="col-md-12 col-lg-6 footer_col footer_section mx-auto"  >
+        <h4 style="text-align: center;">
+          Search Your Doctor / अपने डॉक्टर को खोजें
+        </h4>
+        <form action="{% url 'doctor' %}" method="post" style="text-align: center;">
+          {% csrf_token %}
+          <select name="Doctor" id="">
+            {% for i in doct %}
+            <option value="{{i.id}}">{{i.Field}}/{{i.Field_Hindi}}</option>
+            {% endfor %}
+          </select>
+          <button type="submit" >
+            Search / खोजें
+          </button>
+        </form>
+       </div>
       <div class="btn-box">
         <a href="{% url 'doctor' %}">
           View All
@@ -235,7 +251,7 @@
         <div class="col-md-6">
           <div class="map_container">
             <div class="map">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3575.54376435052!2d86.07092531744384!3d26.341268999999993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39edcd154db54d03%3A0x4b6feef062513e96!2sMadhuri%20Health%20Care%20Hospital%20Private!5e0!3m2!1sen!2sin!4v1649526852985!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3578.347074573498!2d86.07577941503101!3d26.25039678341736!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x39f8cd9fde05cfbc!2zMjbCsDE1JzAxLjQiTiA4NsKwMDQnNDAuNyJF!5e0!3m2!1sen!2sin!4v1652438130041!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
           </div>
         </div>

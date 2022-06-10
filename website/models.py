@@ -44,6 +44,16 @@ class department(models.Model):
     About=models.CharField(max_length=256)
     def __str__(self):
         return self.Department
+# Carriers
+class resume(models.Model): 
+    Name=models.CharField(max_length=256)
+    Contact=models.CharField(max_length=256)
+    Department=models.CharField(max_length=256)
+    Email=models.CharField(max_length=256)
+    About_You=models.CharField(max_length=256)
+    Resume=models.FileField(upload_to='Resume/')
+    def __str__(self):
+        return self.Name
 
 # About
 class about_u(models.Model):
